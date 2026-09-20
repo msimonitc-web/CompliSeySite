@@ -156,15 +156,16 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectRequestT
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-slate-100">
-              <a
-                href="https://academy.complisey.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 font-semibold text-sm flex items-center gap-1.5 hover:text-blue-700"
+              <button
+                onClick={() => {
+                  onNavigate('academy');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="text-indigo-600 font-semibold text-sm flex items-center gap-1.5 hover:text-indigo-700 cursor-pointer"
               >
-                <span>Visit Training Academy</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
+                <span>Explore Academy (Coming Soon)</span>
+                <span className="text-[10px] bg-indigo-500/20 text-indigo-700 px-1.5 py-0.5 rounded font-bold">Soon</span>
+              </button>
             </div>
           </div>
         </div>

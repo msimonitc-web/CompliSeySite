@@ -38,7 +38,7 @@ export const TermsView: React.FC<TermsViewProps> = ({ onNavigate }) => {
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-slate-900 font-['Outfit']">Separate contracts</h2>
             <ul className="list-disc pl-5 space-y-2">
-              <li>CompliSey Academy prepaid seats: <a href="https://academy.complisey.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">academy.complisey.com</a></li>
+              <li>CompliSey Academy prepaid seats &amp; portal: <button onClick={() => { onNavigate('academy'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-blue-600 underline font-medium cursor-pointer">Launching soon (view academy)</button></li>
               <li>On-premise software: the licence and EULA supplied with the installer</li>
             </ul>
           </div>

@@ -350,7 +350,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ initialRequestType = '
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
                 <h3 className="font-bold text-slate-900 text-base">Academy seats</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Corporate packs and individual enrolment run at <a href="https://academy.complisey.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">academy.complisey.com</a>. Use this form if you need a licence discussion first.
+                  Corporate packs and individual enrolment for CompliSey Academy are launching soon. Use this form if you need a licence discussion or pre-registration first.
                 </p>
               </div>
 

@@ -87,15 +87,16 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onNavigate, onSelect
               </div>
               <h2 className="text-2xl font-bold text-slate-900 font-['Outfit']">CompliSey Academy</h2>
             </div>
-            <a
-              href="https://academy.complisey.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-xs flex items-center gap-1.5 shadow transition-all"
+            <button
+              onClick={() => {
+                onNavigate('academy');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-xs flex items-center gap-1.5 shadow transition-all cursor-pointer"
             >
-              <span>Open Academy (academy.complisey.com)</span>
+              <span>Explore Academy (Coming Soon)</span>
               <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            </button>
           </div>
 
           <p className="text-slate-700 leading-relaxed text-base">
@@ -133,20 +134,21 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ onNavigate, onSelect
               Level 1 — Foundations assumes no prior AML course: money laundering, terrorist financing, and the Seychelles AML/CFT/PF map. Level 2 — Controls assumes that picture and teaches the file: customer due diligence, targeted financial sanctions, and transaction monitoring with suspicious reports. Courses are recommended in that order; they are not locked behind each other.
             </p>
             <p className="text-xs text-slate-600 pt-1 font-medium">
-              Corporate packs and individual enrolment run at <a href="https://academy.complisey.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">academy.complisey.com</a>. Use this form if you need a licence discussion first.
+              Corporate packs and individual enrolment for CompliSey Academy are launching soon. Use this form if you need a licence discussion first.
             </p>
           </div>
 
           <div className="pt-2 flex items-center gap-4 flex-wrap">
-            <a
-              href="https://academy.complisey.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow flex items-center gap-2 transition-all"
+            <button
+              onClick={() => {
+                onNavigate('academy');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow flex items-center gap-2 transition-all cursor-pointer"
             >
-              <span>Launch Academy Portal</span>
+              <span>Explore Academy (Coming Soon)</span>
               <ExternalLink className="w-4 h-4" />
-            </a>
+            </button>
             <button
               onClick={() => handleAction('quotation')}
               className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold text-sm transition-all"
