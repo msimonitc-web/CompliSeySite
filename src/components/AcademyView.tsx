@@ -1,5 +1,5 @@
-import React from 'react';
-import { BookOpen, ExternalLink, Award, CheckCircle2, Shield, Users, ArrowRight, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { BookOpen, ExternalLink, Award, CheckCircle2, Shield, Users, ArrowRight, Sparkles, Bell } from 'lucide-react';
 import { ViewType } from '../types';
 import { ACADEMY_COURSES } from '../data/content';
 
@@ -9,8 +9,47 @@ interface AcademyViewProps {
 }
 
 export const AcademyView: React.FC<AcademyViewProps> = ({ onNavigate, onSelectRequestType }) => {
+  const [notification, setNotification] = useState<string | null>(null);
+
+  const handleAcademyClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setNotification("CompliSey Academy portal is launching soon! Pre-registration and corporate seat enquiries are now open.");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 pt-24 pb-20">
+      {/* Notification Banner when clicked */}
+      {notification && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+          <div className="bg-amber-50 border border-amber-200 text-amber-900 px-6 py-4 rounded-2xl shadow-sm flex items-center justify-between gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0">
+                <Bell className="w-5 h-5" />
+              </div>
+              <p className="text-sm font-medium">{notification}</p>
+            </div>
+            <div className="flex items-center gap-3 shrink-0">
+              <button
+                onClick={() => {
+                  setNotification(null);
+                  onSelectRequestType('quotation');
+                }}
+                className="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-xl transition-all"
+              >
+                Enquire for Seats
+              </button>
+              <button
+                onClick={() => setNotification(null)}
+                className="text-amber-700 hover:text-amber-900 text-sm font-bold px-2"
+              >
+                &times;
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-gradient-to-br from-indigo-900 via-slate-900 to-indigo-950 rounded-3xl p-8 sm:p-14 text-white shadow-xl relative overflow-hidden">
@@ -18,7 +57,7 @@ export const AcademyView: React.FC<AcademyViewProps> = ({ onNavigate, onSelectRe
           <div className="relative z-10 max-w-3xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Live Training Portal: academy.complisey.com</span>
+              <span>CompliSey Academy: Coming Soon</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight font-['Outfit']">
               CompliSey Academy: Staff AML/CFT Certification
@@ -27,15 +66,13 @@ export const AcademyView: React.FC<AcademyViewProps> = ({ onNavigate, onSelectRe
               Reporting entities are legally mandated to train their staff in anti-money laundering and combating the financing of terrorism. CompliSey Academy provides structured 12-month prepaid course seats with unit quizzes, final exams, and verified certificates.
             </p>
             <div className="flex items-center gap-4 pt-4 flex-wrap">
-              <a
-                href="https://academy.complisey.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-xl bg-white text-indigo-900 hover:bg-indigo-50 font-bold text-sm shadow-lg flex items-center gap-2 transition-all"
+              <button
+                onClick={handleAcademyClick}
+                className="px-6 py-3.5 rounded-xl bg-white text-indigo-900 hover:bg-indigo-50 font-bold text-sm shadow-lg flex items-center gap-2 transition-all cursor-pointer"
               >
-                <span>Visit academy.complisey.com</span>
+                <span>Access Portal (Coming Soon)</span>
                 <ExternalLink className="w-4 h-4" />
-              </a>
+              </button>
               <button
                 onClick={() => onSelectRequestType('quotation')}
                 className="px-6 py-3.5 rounded-xl bg-indigo-800/80 hover:bg-indigo-700 text-white font-semibold text-sm border border-indigo-700/50 transition-all"
@@ -51,18 +88,16 @@ export const AcademyView: React.FC<AcademyViewProps> = ({ onNavigate, onSelectRe
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1">
-            <h2 className="text-xl font-bold text-slate-900 font-['Outfit']">Individual Enrolment &amp; Corporate Packs are Live</h2>
-            <p className="text-slate-600 text-sm">Access the live training portal now for immediate course registration and seat allocation.</p>
+            <h2 className="text-xl font-bold text-slate-900 font-['Outfit']">Individual Enrolment &amp; Corporate Packs Opening Soon</h2>
+            <p className="text-slate-600 text-sm">Register your interest now for priority seat allocation upon public launch.</p>
           </div>
-          <a
-            href="https://academy.complisey.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow flex items-center gap-2 transition-all shrink-0"
+          <button
+            onClick={handleAcademyClick}
+            className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow flex items-center gap-2 transition-all shrink-0 cursor-pointer"
           >
-            <span>Open Academy Portal</span>
+            <span>Notify Me When Live</span>
             <ExternalLink className="w-4 h-4" />
-          </a>
+          </button>
         </div>
       </section>
 
@@ -101,15 +136,13 @@ export const AcademyView: React.FC<AcademyViewProps> = ({ onNavigate, onSelectRe
               </div>
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                 <span className="text-xs font-medium text-slate-500">12-Month Prepaid Seat Access</span>
-                <a
-                  href="https://academy.complisey.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-indigo-600 hover:text-indigo-700 font-semibold text-xs flex items-center gap-1"
+                <button
+                  onClick={handleAcademyClick}
+                  className="text-indigo-600 hover:text-indigo-700 font-semibold text-xs flex items-center gap-1 cursor-pointer"
                 >
-                  <span>Enrol at academy.complisey.com</span>
+                  <span>Pre-register Course</span>
                   <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+                </button>
               </div>
             </div>
           ))}
@@ -143,19 +176,18 @@ export const AcademyView: React.FC<AcademyViewProps> = ({ onNavigate, onSelectRe
             </div>
           </div>
           <div className="pt-4 flex items-center justify-between flex-wrap gap-4 border-t border-indigo-200/60">
-            <span className="text-xs text-slate-600 font-medium">Platform: academy.complisey.com</span>
-            <a
-              href="https://academy.complisey.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs flex items-center gap-1.5 shadow transition-all"
+            <span className="text-xs text-slate-600 font-medium">Platform: academy.complisey.com (Launching Soon)</span>
+            <button
+              onClick={handleAcademyClick}
+              className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs flex items-center gap-1.5 shadow transition-all cursor-pointer"
             >
-              <span>Go to academy.complisey.com</span>
+              <span>Enquire for Early Access</span>
               <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            </button>
           </div>
         </div>
       </section>
     </div>
   );
 };
+
