@@ -1,0 +1,7 @@
+{
+  "name": "CompliSey - KYC/AML Platform & Advisory",
+  "description": "On-premise KYC/AML software, regulatory advisory, compliance intelligence, and AML/CFT training from Seychelles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
