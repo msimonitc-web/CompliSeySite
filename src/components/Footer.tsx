@@ -60,15 +60,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </button>
               </li>
               <li>
-                <a
-                  href="https://academy.complisey.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-amber-400 transition-colors flex items-center gap-1.5"
+                <button
+                  onClick={() => handleLinkClick('academy')}
+                  className="hover:text-amber-400 transition-colors text-left flex items-center gap-1.5"
                 >
                   <span>CompliSey Academy</span>
-                  <ExternalLink className="w-3 h-3 text-blue-400" />
-                </a>
+                  <span className="text-[10px] bg-indigo-500/20 text-indigo-300 px-1.5 py-0.5 rounded">Soon</span>
+                </button>
               </li>
               <li>
                 <button
